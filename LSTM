@@ -1,0 +1,20 @@
+data = pd.read_csv("AirPollution.csv")
+
+data.head()
+data["DateTime"] = pd.to_datetime(data["year"]*1000000+data["month"]*10000+data["day"]*100+data["hour"],format='%Y%m%d%H')
+data = data.drop(["year", "month", "day", "hour", "No"], axis = 1)
+data = data.rename(index=str, columns={"pm2.5": "pollution", "DEWP": "dew", "TEMP": "temp", "PRES": "press", "cbwd": "wind_dir", "Iws": "wind_spd", "Is": "snow", "Ir": "rain"})
+data = data.set_index("DateTime")
+data.head()
+
+values = data.values
+groups = [0, 1, 2, 3, 5, 6, 7]
+i = 1
+# plot each column
+plt.figure()
+for group in groups:
+    plt.subplot(len(groups), 1, i)
+    plt.plot(values[:, group])
+    plt.title(data.columns[group], y=0.5, loc='right')
+  i =+ 1
+plt.show()
