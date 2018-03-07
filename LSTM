@@ -19,3 +19,19 @@ for group in groups:
     plt.title(data.columns[group], y=0.5, loc='right')
   i =+ 1
 plt.show()
+
+
+# subcols = data1.columns
+# for i in subcols:
+#     plt.figure(figsize=(15,8))
+#     plt.plot(data1[i], color="red")
+#     plt.title(i) #prints the title on the top
+#     plt.ylabel('Values') #labels y axis
+#     plt.xlabel('Date/Time') #labels x axis
+# #     plt.savefig("i")
+
+# import matplotlib.backends.backend_pdf
+# pdf = matplotlib.backends.backend_pdf.PdfPages("fig.pdf")
+# for fig in range(1, plt.gcf().number+1): ## will open an empty extra figure :(
+#     pdf.savefig( fig )
+# pdf.close()
